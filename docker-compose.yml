@@ -1,0 +1,14 @@
+services:
+  crew:
+    container_name: hello_world-crew
+    build: .
+    image: crewai_template:0.1.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/app
+    command: streamlit run app.py --server.address=0.0.0.0
